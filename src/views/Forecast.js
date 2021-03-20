@@ -4,25 +4,30 @@ import axios from "axios";
 import Search from "../components/Search";
 
 const Forecast = (props) => {
-  const { cityName } = props;
+  const { tempUnit, cityName } = props;
   const [city, setCity] = useState(null);
+  const uriEncodedCity = encodeURIComponent(cityName);
 
   useEffect(() => {
     axios
       .get(
-        `api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${process.env.REACT_APP_API_KEY}`
+        `http://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&appid=${process.env.REACT_APP_API_KEY}&units=${tempUnit}`
       )
       .then((res) => {
-        setCity(res.data);
+        console.log(res.data);
+        setCity(JSON.stringify(res.data));
       })
       .catch((err) => {
         console.error(err);
       });
-  }, []);
+  }, [cityName]);
 
   return (
     <div>
       <Search />
+      <div>
+        {city}
+      </div>
     </div>
   );
 };

@@ -7,7 +7,7 @@ const Search = () => {
 
   const handleSubmit = (e) => {
       e.preventDefault();
-      navigate(`/${city}`);
+      navigate(`/${tempUnit}/${city}`);
   }
 
   return (
