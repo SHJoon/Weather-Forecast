@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from '@reach/router';
+import { Router } from '@reach/router';
 
 import './App.css';
 
 import Homepage from './views/Homepage';
-import Weather from './views/Weather';
+import Forecast from './views/Forecast';
 
 function App() {
   const API_KEY = process.env.REACT_APP_API_KEY;
@@ -12,10 +12,10 @@ function App() {
 
   return (
     <div className="App">
-      <Link>
+      <Router>
         <Homepage path="/"/>
-        <Weather path="/:city"/>
-      </Link>
+        {/* <Forecast path="/:city"/> */}
+      </Router>
     </div>
   );
 }
