@@ -1,23 +1,21 @@
-import logo from './logo.svg';
+import React, { useState, useEffect } from 'react';
+import { Link } from '@reach/router';
+
 import './App.css';
 
+import Homepage from './views/Homepage';
+import Weather from './views/Weather';
+
 function App() {
+  const API_KEY = process.env.REACT_APP_API_KEY;
+  const [ location, setLocation ] = useState("");
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Link>
+        <Homepage path="/"/>
+        <Weather path="/:city"/>
+      </Link>
     </div>
   );
 }
