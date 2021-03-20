@@ -5,9 +5,14 @@ const Search = () => {
   const [city, setCity] = useState("");
   const [tempUnit, setTempUnit] = useState("imperial");
 
+  const handleSubmit = (e) => {
+      e.preventDefault();
+      navigate(`/${city}`);
+  }
+
   return (
     <div>
-      <form onSubmit={navigate(`/${city}`)}>
+      <form onSubmit={e => handleSubmit(e)}>
         <input
           type="text"
           placeholder="Enter city name."
@@ -34,8 +39,8 @@ const Search = () => {
           />
           C
         </label>
-
-        <input type="submit">Retrieve forecast information</input>
+        
+        <input type="submit" value="Retrieve forecast information" />
       </form>
     </div>
   );

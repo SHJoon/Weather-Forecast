@@ -7,14 +7,14 @@ import Homepage from './views/Homepage';
 import Forecast from './views/Forecast';
 
 function App() {
-  const API_KEY = process.env.REACT_APP_API_KEY;
+  // const API_KEY = process.env.REACT_APP_API_KEY;
   const [ location, setLocation ] = useState("");
 
   return (
     <div className="App">
       <Router>
         <Homepage path="/"/>
-        {/* <Forecast path="/:city"/> */}
+        <Forecast path="/:cityName"/>
       </Router>
     </div>
   );
