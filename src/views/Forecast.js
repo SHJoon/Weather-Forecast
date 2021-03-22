@@ -25,9 +25,7 @@ const Forecast = (props) => {
   return (
     <div>
       <Search />
-      <div>
-        {city}
-      </div>
+      <div>{city}</div>
     </div>
   );
 };
