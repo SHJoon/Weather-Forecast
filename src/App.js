@@ -1,19 +1,23 @@
-import React, { useState, useEffect } from 'react';
-import { Router } from '@reach/router';
+import React, { useState, useEffect } from "react";
+import { Router } from "@reach/router";
 
-import './App.css';
+import "./App.css";
 
-import Homepage from './views/Homepage';
-import Forecast from './views/Forecast';
+import Homepage from "./views/Homepage";
+import Forecast from "./views/Forecast";
 
 function App() {
-  const [ location, setLocation ] = useState("");
+  const [isValid, setIsValid] = useState(true);
 
   return (
     <div className="App">
       <Router>
-        <Homepage path="/"/>
-        <Forecast path="/:tempUnit/:cityName"/>
+        <Homepage path="/" isValid={isValid} setIsValid={setIsValid} />
+        <Forecast
+          path="/:tempUnit/:cityName"
+          isValid={isValid}
+          setIsValid={setIsValid}
+        />
       </Router>
     </div>
   );

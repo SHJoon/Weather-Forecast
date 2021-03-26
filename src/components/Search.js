@@ -1,18 +1,23 @@
 import React, { useState } from "react";
 import { navigate } from "@reach/router";
 
-const Search = () => {
+const Search = ({ setIsValid }) => {
   const [city, setCity] = useState("");
   const [tempUnit, setTempUnit] = useState("imperial");
 
   const handleSubmit = (e) => {
-      e.preventDefault();
+    e.preventDefault();
+    if (length(city) !== 0) {
+      setIsValid(true);
       navigate(`/${tempUnit}/${city}`);
-  }
+    } else {
+      setIsValid(false);
+    }
+  };
 
   return (
     <div>
-      <form onSubmit={e => handleSubmit(e)}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <input
           type="text"
           placeholder="Enter city name."
@@ -39,7 +44,7 @@ const Search = () => {
           />
           C
         </label>
-        
+
         <input type="submit" value="Retrieve forecast information" />
       </form>
     </div>

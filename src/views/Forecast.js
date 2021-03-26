@@ -3,8 +3,7 @@ import axios from "axios";
 
 import Search from "../components/Search";
 
-const Forecast = (props) => {
-  const { tempUnit, cityName } = props;
+const Forecast = ({ tempUnit, cityName, isValid, setIsValid }) => {
   const [city, setCity] = useState(null);
   const uriEncodedCity = encodeURIComponent(cityName);
 
@@ -24,7 +23,7 @@ const Forecast = (props) => {
 
   return (
     <div>
-      <Search />
+      <Search setIsValid={setIsValid} />
       <div>{city}</div>
     </div>
   );
