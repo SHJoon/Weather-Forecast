@@ -4,7 +4,7 @@ import axios from "axios";
 import Search from "../components/Search";
 
 const Forecast = ({ tempUnit, cityName, isValid, setIsValid }) => {
-  const [city, setCity] = useState(null);
+  const [forecast, setForecast] = useState(null);
   const uriEncodedCity = encodeURIComponent(cityName);
 
   useEffect(() => {
@@ -14,7 +14,7 @@ const Forecast = ({ tempUnit, cityName, isValid, setIsValid }) => {
       )
       .then((res) => {
         console.log(res.data);
-        setCity(JSON.stringify(res.data));
+        setForecast(JSON.stringify(res.data));
       })
       .catch((err) => {
         console.error(err);
@@ -24,7 +24,7 @@ const Forecast = ({ tempUnit, cityName, isValid, setIsValid }) => {
   return (
     <div>
       <Search setIsValid={setIsValid} />
-      <div>{city}</div>
+      <div>{forecast}</div>
     </div>
   );
 };

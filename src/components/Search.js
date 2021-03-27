@@ -7,7 +7,7 @@ const Search = ({ setIsValid }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (length(city) !== 0) {
+    if (city.length !== 0) {
       setIsValid(true);
       navigate(`/${tempUnit}/${city}`);
     } else {
