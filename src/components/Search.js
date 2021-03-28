@@ -1,17 +1,17 @@
 import React, { useState } from "react";
 import { navigate } from "@reach/router";
 
-const Search = ({ setIsValid }) => {
+const Search = ({ setIsError, setCity }) => {
   const [city, setCity] = useState("");
   const [tempUnit, setTempUnit] = useState("imperial");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.length !== 0) {
-      setIsValid(true);
+      setIsError(true);
       navigate(`/${tempUnit}/${city}`);
     } else {
-      setIsValid(false);
+      setIsError(false);
     }
   };
 

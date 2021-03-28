@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-import Search from "../components/Search";
-
-const Forecast = ({ tempUnit, cityName, isValid, setIsValid }) => {
+const Forecast = ({ isError, setIsError }) => {
   const [forecast, setForecast] = useState(null);
   const uriEncodedCity = encodeURIComponent(cityName);
 
@@ -23,7 +21,6 @@ const Forecast = ({ tempUnit, cityName, isValid, setIsValid }) => {
 
   return (
     <div>
-      <Search setIsValid={setIsValid} />
       <div>{forecast}</div>
     </div>
   );
