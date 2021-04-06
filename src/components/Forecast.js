@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Forecast = ({ isError, setIsError }) => {
+const Forecast = ({ isError, setIsError, city }) => {
   const [forecast, setForecast] = useState(null);
   const uriEncodedCity = encodeURIComponent(cityName);
 
