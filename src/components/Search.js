@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { navigate } from "@reach/router";
 import axios from "axios";
 
-const Search = ({ setIsError, setCity }) => {
-  const [city, setCity] = useState("");
+const Search = ({ setIsError, setCity, setForecast }) => {
   const [tempUnit, setTempUnit] = useState("imperial");
 
   const handleSubmit = (e) => {
@@ -17,6 +16,7 @@ const Search = ({ setIsError, setCity }) => {
         )
         .then((res) => {
           console.log(res);
+          setForecast(JSON.stringify(res.data));
         })
         .catch((err) => {
           console.error(err);
