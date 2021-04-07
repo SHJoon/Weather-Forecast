@@ -9,14 +9,6 @@ function App() {
   return (
     <div className="App">
       <Homepage />
-      {/* <Router>
-        <Homepage path="/" isValid={isValid} setIsValid={setIsValid} />
-        <Forecast
-          path="/:tempUnit/:cityName"
-          isValid={isValid}
-          setIsValid={setIsValid}
-        />
-      </Router> */}
     </div>
   );
 }

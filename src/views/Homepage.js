@@ -13,7 +13,7 @@ const Homepage = () => {
       <h1>Weather Forecast</h1>
       <Search setIsError={setIsError} city={city} setCity={setCity} setForecast={setForecast}/>
       {/* {
-        isError ? <Error /> : <Forecast />
+        isError ? <Error /> : <Forecast forecast={forecast} />
       } */}
     </div>
   );
