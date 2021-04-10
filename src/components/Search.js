@@ -16,10 +16,15 @@ const Search = ({ setIsError, setCity, setForecast }) => {
         )
         .then((res) => {
           console.log(res);
+          if (res.status !== 200) {
+            throw new Error();
+          }
           setForecast(JSON.stringify(res.data));
+          setIsError(false);
         })
         .catch((err) => {
           console.error(err);
+          setIsError(true);
         });
       // navigate(`/${tempUnit}/${city}`);
     } else {
