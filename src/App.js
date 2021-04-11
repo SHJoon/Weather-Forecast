@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Router } from "@reach/router";
+import React from "react";
 
 import "./App.css";
 

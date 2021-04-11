@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { navigate } from "@reach/router";
 import axios from "axios";
 
-const Search = ({ setIsError, setCity, setForecast }) => {
+const Search = ({ setIsError, city, setCity, setForecast }) => {
   const [tempUnit, setTempUnit] = useState("imperial");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (city.length !== 0) {
       setIsError(false);
-      let uriEncodedCity = encodeURIComponent(cityName);
+      let uriEncodedCity = encodeURIComponent(city);
       axios
         .get(
           `http://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&appid=${process.env.REACT_APP_API_KEY}&units=${tempUnit}`
@@ -19,14 +18,13 @@ const Search = ({ setIsError, setCity, setForecast }) => {
           if (res.status !== 200) {
             throw new Error();
           }
-          setForecast(JSON.stringify(res.data));
+          setForecast(res.data);
           setIsError(false);
         })
         .catch((err) => {
           console.error(err);
           setIsError(true);
         });
-      // navigate(`/${tempUnit}/${city}`);
     } else {
       setIsError(true);
     }

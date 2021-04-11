@@ -1,11 +1,17 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 
-const Forecast = ({ isError, setIsError, forecast }) => {
-
+const Forecast = ({ forecast }) => {
   return (
     <div>
-      <div>{forecast}</div>
+      {forecast?.cod === 200 ? (
+        <div>
+          <h3>{forecast.name}</h3>
+          <p>
+            It is currently {Math.round(forecast.main.temp)} degrees out with{" "}
+            {forecast.weather[0].description}.
+          </p>
+        </div>
+      ) : null}
     </div>
   );
 };
