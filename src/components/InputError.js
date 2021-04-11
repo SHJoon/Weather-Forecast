@@ -3,7 +3,7 @@ import React from 'react';
 const InputError = () => {
 
     return(
-        <div></div>
+        <div style={{color:"red"}}>Please enter a valid city</div>
     )
 }
 
