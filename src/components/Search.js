@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+import styles from "../styles/Search.module.css";
+
 const Search = ({ setIsError, city, setCity, setForecast }) => {
   const [tempUnit, setTempUnit] = useState("imperial");
 
@@ -60,7 +62,7 @@ const Search = ({ setIsError, city, setCity, setForecast }) => {
           C
         </label>
 
-        <input type="submit" value="Retrieve forecast information" />
+        <input class={styles.button} type="submit" value="Retrieve forecast information" />
       </form>
     </div>
   );
