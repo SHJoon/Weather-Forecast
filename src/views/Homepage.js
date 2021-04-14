@@ -19,7 +19,7 @@ const Homepage = () => {
         setForecast={setForecast}
       />
       {isError && <InputError />}
-      <Forecast forecast={forecast} />
+      {/* <Forecast forecast={forecast} /> */}
     </div>
   );
 };

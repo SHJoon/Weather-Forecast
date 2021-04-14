@@ -13,13 +13,16 @@ const Search = ({ setIsError, city, setCity, setForecast }) => {
       let uriEncodedCity = encodeURIComponent(city);
       axios
         .get(
-          `http://api.openweathermap.org/data/2.5/weather?q=${uriEncodedCity}&appid=${process.env.REACT_APP_API_KEY}&units=${tempUnit}`
+          `http://api.openweathermap.org/data/2.5/forecast?q=${uriEncodedCity}&appid=${process.env.REACT_APP_API_KEY}&units=${tempUnit}`
         )
         .then((res) => {
-          console.log(res);
           if (res.status !== 200) {
             throw new Error();
           }
+          console.log(res.data);
+          const filteredData = res.data.filter((day) => {
+            day.dt_txt.includes("18:00:00");
+          });
           setForecast(res.data);
           setIsError(false);
         })
@@ -62,7 +65,11 @@ const Search = ({ setIsError, city, setCity, setForecast }) => {
           C
         </label>
 
-        <input class={styles.button} type="submit" value="Retrieve forecast information" />
+        <input
+          className={styles.button}
+          type="submit"
+          value="Retrieve forecast information"
+        />
       </form>
     </div>
   );
